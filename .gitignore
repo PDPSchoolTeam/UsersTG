@@ -1,0 +1,6 @@
+.env
+venv
+.idea
+users.db
+__pycache__
+.xml
