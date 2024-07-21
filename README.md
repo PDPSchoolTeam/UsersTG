@@ -9,7 +9,7 @@ Ushbu Telegram bot foydalanuvchilarni ma'lumotlar bazasida ro'yxatdan o'tkazadi,
 
 ## Talablar
  
-- Python 3.x
+- Python 3.x 
 - `aiogram` kutubxonasi
 - `python-dotenv` kutubxonasi
 - `sqlite3` kutubxonasi (Python standarti kutubxonasining bir qismi)
