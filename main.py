@@ -1,11 +1,12 @@
 import os
+import json
 import asyncio
 import logging
-from aiogram import Bot, Dispatcher
-from aiogram.types import Message
-from dotenv import load_dotenv
-from aiogram.filters.command import CommandStart, Command
 from db import Database
+from dotenv import load_dotenv
+from aiogram.types import Message
+from aiogram import Bot, Dispatcher
+from aiogram.filters.command import CommandStart, Command
 
 load_dotenv()
 
@@ -43,6 +44,34 @@ async def send_msg(msg: Message):
             for row in users:
                 await bot.send_message(row[0], text)
             await bot.send_message(msg.from_user.id, f"Done message all users")
+
+
+@dp.message(Command('msg', prefix=':'))
+async def send_meg(msg: Message):
+    await msg.answer("Rasm va rasm sarlavhasini kiriting! ")  # noqa
+    if msg.chat.type == "private":
+        if msg.from_user.id == int(os.getenv("ADMIN")):
+            @dp.message()
+            async def upload_img(msg: Message):
+                image = msg.json()
+                img_link = json.loads(image)
+                photo = img_link['photo'][0]['file_id']
+                capt = img_link['caption']
+                users = db.get_all_users()
+                for row in users:
+                    await bot.send_photo(chat_id=row[0], photo=photo, caption=capt)
+
+
+# @dp.message()
+# async def upload_img(msg: Message):
+#     image = msg.json()
+#     img_link = json.loads(image)
+#     # print(type(img_link))
+#     # print(img_link)
+#     # print(img_link['photo'][0])
+#     photo = img_link['photo'][0]['file_id']
+#     capt = img_link['caption']
+#     await bot.send_photo(chat_id=msg.chat.id, photo=photo, caption=capt)
 
 
 async def main():

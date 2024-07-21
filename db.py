@@ -37,6 +37,6 @@ class Database:
             result = self.cursor.execute("SELECT * FROM users WHERE user_id = ?", (user_id,)).fetchmany(1)
             return bool(len(result))
 
-# Usage
+# # Usage
 # DB_URL = os.getenv('DB_URL')
 # database = Database(DB_URL)
