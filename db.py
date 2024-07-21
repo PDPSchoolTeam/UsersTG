@@ -22,7 +22,7 @@ class Database:
             ''')
 
     def add(self, user_id: int, user_fullname: str):
-        with self.connection:   # Bu qator //self.connection// yordamida ma'lumotlar bazasiga ulanishni ochadi va bu kontekst menejer yordamida amalga oshiriladi. Bu usul ulanishni avtomatik ravishda yopadi, hatto funksiyada xatolik yuz bersa ham.
+        with self.connection:  # Bu qator //self.connection// yordamida ma'lumotlar bazasiga ulanishni ochadi va bu kontekst menejer yordamida amalga oshiriladi. Bu usul ulanishni avtomatik ravishda yopadi, hatto funksiyada xatolik yuz bersa ham.
             return self.cursor.execute(
                 "INSERT INTO users (user_id, full_name) VALUES (?, ?)",
                 (user_id, user_fullname)
@@ -37,6 +37,10 @@ class Database:
             result = self.cursor.execute("SELECT * FROM users WHERE user_id = ?", (user_id,)).fetchmany(1)
             return bool(len(result))
 
-# Usage
+    def remove_users(self, user_id: int):
+        with self.connection:
+            self.cursor.execute("DELETE FROM users WHERE user_id = ?", (user_id,))
+            self.connection.commit()
+# # Usage
 # DB_URL = os.getenv('DB_URL')
 # database = Database(DB_URL)
