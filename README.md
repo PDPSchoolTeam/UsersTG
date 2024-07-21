@@ -2,7 +2,7 @@
   
 ![TgBot](https://github.com/user-attachments/assets/f8c481b5-af74-48cf-bed1-bb5979add444)
    
-       
+        
 ## Umumiy ma'lumot
 
 Ushbu Telegram bot foydalanuvchilarni ma'lumotlar bazasida ro'yxatdan o'tkazadi, administrator uchun barcha foydalanuvchilar ro'yxatini ko'rsatadi va administrator tomonidan yuborilgan rasm va sarlavhani barcha foydalanuvchilarga yuboradi.
