@@ -11,7 +11,7 @@ Ushbu Telegram bot foydalanuvchilarni ma'lumotlar bazasida ro'yxatdan o'tkazadi,
  
 - Python 3.x 
 - `aiogram` kutubxonasi
-- `python-dotenv` kutubxonasi
+- `python-dotenv` kutubxonasi 
 - `sqlite3` kutubxonasi (Python standarti kutubxonasining bir qismi)
 
 ## O'rnatish
