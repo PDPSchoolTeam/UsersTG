@@ -20,7 +20,7 @@ Ushbu Telegram bot foydalanuvchilarni ma'lumotlar bazasida ro'yxatdan o'tkazadi,
     ```bash
     pip install aiogram python-dotenv
     ```
-
+ 
 2. **Atrof-muhitni sozlash**:
     Loyihangizning ildiz katalogida `.env` faylini yarating va quyidagi parametrlarni qo'shing:
     ```
