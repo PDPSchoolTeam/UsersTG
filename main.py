@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from aiogram.types import Message
 from aiogram import Bot, Dispatcher
 from aiogram.filters.command import CommandStart, Command
+from aiogram.exceptions import TelegramForbiddenError
 
 load_dotenv()
 
@@ -59,7 +60,14 @@ async def send_meg(msg: Message):
                 capt = img_link['caption']
                 users = db.get_all_users()
                 for row in users:
-                    await bot.send_photo(chat_id=row[0], photo=photo, caption=capt)
+                    user_id = row[0]
+                    try:
+                        await bot.send_photo(chat_id=user_id, photo=photo, caption=capt)
+                    except TelegramForbiddenError:
+                        logging.warning(f"User {user_id} blocked the bot. Removing user.")
+                        db.remove_users(user_id)
+                    except Exception as e:
+                        logging.error(f"Failed to send photo to {user_id}: {e}")
 
 
 # @dp.message()
