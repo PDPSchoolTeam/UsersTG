@@ -1,7 +1,7 @@
 # Telegram Bot Hujjati
   
 ![TgBot](https://github.com/user-attachments/assets/f8c481b5-af74-48cf-bed1-bb5979add444)
-
+ 
       
 ## Umumiy ma'lumot
 
