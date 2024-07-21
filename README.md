@@ -4,7 +4,7 @@
    
         
 ## Umumiy ma'lumot 
-
+ 
 Ushbu Telegram bot foydalanuvchilarni ma'lumotlar bazasida ro'yxatdan o'tkazadi, administrator uchun barcha foydalanuvchilar ro'yxatini ko'rsatadi va administrator tomonidan yuborilgan rasm va sarlavhani barcha foydalanuvchilarga yuboradi.
 
 ## Talablar
